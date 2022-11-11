@@ -51,3 +51,46 @@ body {
   .dropdown:hover .dropdown-content {
     display: block;
   }
+
+  #bttn1 {
+    opacity: 0.6;
+  }
+
+  #bttn2 {
+    opacity: 0.6;
+  }
+
+  .donut_image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%; 
+  }
+
+  button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+
+  }
+
+  #bttn {
+    width: 100px;
+  }
+
+  #bttn1 {
+    width: 180px;
+  }
+
+  #bttn2 {
+    width: 160px;
+  }
+
+  #bttn3 {
+    width: 100px;
+  }
+
+  p {
+    text-align: center;
+  }

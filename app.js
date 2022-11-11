@@ -6,6 +6,7 @@ var auto_clicker_purchase$ = 100;
 var autoclicker_on = false;
 var multiplier_count = 0;
 var multiplier_purchase$ = 10;
+var auto_interval = 0;
 document.getElementById("bttn").onclick = function() {Add_donut()};
 document.getElementById("bttn1").onclick = function() {
     Activate_auto_clickers();
@@ -16,6 +17,7 @@ document.getElementById("bttn2").onclick = function() {Purchase_multiplier()};
 console.log(donut_count);
 console.log(auto_clicker_count);
 console.log(multiplier_count);
+document.getElementById("bttn3").onclick = function() {Reset()};
 
 function Add_donut() {
 if (multiplier_count == 0) {
@@ -28,6 +30,18 @@ if (multiplier_count == 0) {
     Display_donut_count();
     Display_ac_count();
     Display_m_count();
+    if (donut_count >= auto_clicker_purchase$) {
+        document.getElementById("bttn1").style.opacity="1.0";
+    }
+    else {
+        document.getElementById("bttn1").style.opacity="0.6";
+    }
+    if (donut_count >= multiplier_purchase$) {
+        document.getElementById("bttn2").style.opacity="1.0";
+    }
+    else {
+        document.getElementById("bttn2").style.opacity="0.6";
+    }
 
 }
 
@@ -43,12 +57,18 @@ function Purchase_auto_clicker() {
         Display_donut_count();
         Display_ac_count();
         Display_m_count();
+        if (donut_count >= auto_clicker_purchase$) {
+            document.getElementById("bttn1").style.opacity="1.0";
+        }
+        else {
+            document.getElementById("bttn1").style.opacity="0.6";
+        }    
     }
 }
 
 function Activate_auto_clickers() {
-    if (autoclicker_on == false && donut_count >= auto_clicker_purchase$) {
-        setInterval(function(){
+    if ((autoclicker_on == false) && (donut_count >= auto_clicker_purchase$)) {
+        auto_interval = setInterval(function(){
             if (multiplier_count == 0) {
                 donut_count = donut_count + auto_clicker_count;
             }
@@ -59,6 +79,18 @@ function Activate_auto_clickers() {
             Display_donut_count();
             Display_ac_count();
             Display_m_count();
+            if (donut_count >= auto_clicker_purchase$) {
+                document.getElementById("bttn1").style.opacity="1.0";
+            }
+            else {
+                document.getElementById("bttn1").style.opacity="0.6";
+            }
+            if (donut_count >= multiplier_purchase$) {
+                document.getElementById("bttn2").style.opacity="1.0";
+            }
+            else {
+                document.getElementById("bttn2").style.opacity="0.6";
+            }
         }, 1000);
     }
 }
@@ -74,24 +106,58 @@ function Purchase_multiplier() {
         Display_donut_count();
         Display_ac_count();
         Display_m_count();
+        if (donut_count >= multiplier_purchase$) {
+            document.getElementById("bttn2").style.opacity="1.0";
+        }
+        else {
+            document.getElementById("bttn2").style.opacity="0.6";
+        }
+  
     }
 }
 
 function Display_donut_count(){
-    document.getElementById("count").innerHTML="The donut count is " + Math.round(donut_count) + " donuts."
+    document.getElementById("count").innerHTML="The donut count is " + Math.round(donut_count) + " donuts"
 }
 
 function Display_ac_count() {
-    document.getElementById("ac_count").innerHTML="You have " + auto_clicker_count + " autoclickers."
+    document.getElementById("ac_count").innerHTML="You have " + auto_clicker_count + " autoclickers. The auto clicker purchase price is " + parseFloat(auto_clicker_purchase$.toFixed(2)) + " donuts";
 }
 
 function Display_m_count() {
-    document.getElementById("m_count",).innerHTML="You have " + multiplier_count + " multipliers."
+    document.getElementById("m_count",).innerHTML="You have " + multiplier_count + " multipliers. The donut multiplier purchase price is " + parseFloat(multiplier_purchase$.toFixed(2)) + " donuts"
+    document.getElementById("dmv").innerHTML="Donut Multiplier value is: " + multiplier_count;
+
+}
+
+function Reset() {
+    console.log("Resetting game.")
+    donut_count = 0;
+    auto_clicker_count = 0;
+    auto_clicker_purchase$ = 100;
+    autoclicker_on = false;
+    multiplier_count = 0;
+    multiplier_purchase$ = 10;
+    Display_donut_count();
+    Display_ac_count();
+    Display_m_count();
+    clearInterval(auto_interval);
+    if (donut_count >= auto_clicker_purchase$) {
+        document.getElementById("bttn1").style.opacity="1.0";
+    }
+    else {
+        document.getElementById("bttn1").style.opacity="0.6";
+    }
+    if (donut_count >= multiplier_purchase$) {
+        document.getElementById("bttn2").style.opacity="1.0";
+    }
+    else {
+        document.getElementById("bttn2").style.opacity="0.6";
+    }
 }
 
 
 }
-
 
 
 
