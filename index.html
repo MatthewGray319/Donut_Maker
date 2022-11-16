@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donut Maker</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" type="application/javascript"></script>
+</head>
+<body onload="startup()">
+    <div>
+    <ul>
+        <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">Company Info</a>
+            <div class="dropdown-content">
+              <p>Fred the Baker Baking Company was founded in 1880. We specialize in delicious, organic, gluten-free donuts. Fred the baker is retiring, but his company lives on in this virtual donut maker game.</p>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">Inspiration</a>
+            <div class="dropdown-content">
+              <p>This game was inspired by the original Cookie Clicker game.</p>
+            </div>
+          </li>
+          <li class="dropdown" style="float: none; position:absolute; top: 5.5%; left: 50%; transform:translate(-50%,-50%)">
+            <a href="javascript:void(0)" class="dropbtn">Developer Info</a>
+            <div class="dropdown-content">
+              <p>This game was developed by Matthew Gray, a junior software engineer.</p>
+              <a href="https://matthewgray319.github.io/">Profile</a>
+              <a href="https://github.com/MatthewGray319">Github</a>
+            </div>
+          </li>
+      </ul>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <image class="donut_image"; src="donut.jpg"></image>
+    <br>
+    <button type="button"; id="bttn" onclick="Add_donut()">Add a donut</button>
+    <p id="count">The donut count is 0.</p>
+    <p id="dmv">Donut Multiplier value is: 0 donuts.</p>
+    <button type="button"; id="bttn1" onclick="Purchase_auto_clickers()">Purchase an auto clicker</button>
+    <p id="ac_count">You have 0 autoclickers. The auto clicker purchase price is 100 donuts</p>
+    <button type="button"; id="bttn2" onclick="Purchase_multiplier()">Purchase a multiplier</button>
+    <p id="m_count">You have 0 multipliers. The donut multiplier purchase price is 10 donuts</p>
+    <br>
+    <br>
+    <button type="button"; id="bttn3" onclick="Reset()">Reset game</button>
+</body>
+</html>
